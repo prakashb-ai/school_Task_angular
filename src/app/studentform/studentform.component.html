@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 rounded rounded-2 shadow m-2 ">
+            <h3 class="text-danger">StudentForm</h3>
+            <form [formGroup]="studentsForm" (ngSubmit)="onSubmit()" class="mt-2 p-2">
+                <div class="mb-3">
+                    <label for="name" class="form-label"> Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name"
+                        placeholder="enter a name" />
+                </div>
+
+                <div *ngIf="studentsForm.get('name')?.touched && studentsForm.get('name')?.invalid" class="text-danger">
+                    <small *ngIf="studentsForm.get('name')?.hasError('required')">name is required</small>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="text" id="email" class="form-control" formControlName="email"
+                        placeholder="enter a email" />
+                </div>
+                <div *ngIf="studentsForm.get('email')?.touched && studentsForm.get('email')?.invalid"
+                    class="text-danger">
+                    <small *ngIf="studentsForm.get('email')?.hasError('required')">email is required</small>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="phonenumber" class="form-label">phonenumber</label>
+                    <input type="number" id="phonenumber" class="form-control" formControlName="phonenumber"
+                        placeholder="enter a phonenumber" />
+
+                    <div *ngIf="studentsForm.get('phonenumber')?.touched && studentsForm.get('phonenumber')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="studentsForm.get('phonenumber')?.hasError('required')">phonenumber is
+                            required</small>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select id="status" class="form-control" formControlName="status">
+                        <option value="">Select status</option>
+                        <option value="Active">Active</option>
+                        <option value="inActive">inActive</option>
+                    </select>
+
+                    <div *ngIf="studentsForm.get('status')?.touched && studentsForm.get('status')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="studentsForm.get('status')?.hasError('required')">Status is required</small>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="createdBy" class="form-label">createdBy</label>
+                    <input type="text" id="createdBy" class="form-control" formControlName="createdBy"
+                        placeholder="enter a phonenumber" />
+
+                    <div *ngIf="studentsForm.get('createdBy')?.touched && studentsForm.get('createdBy')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="studentsForm.get('createdBy')?.hasError('required')">createdBy is required</small>
+
+                    </div>
+
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="classId" class="form-label">class</label>
+                    <select
+                        id="classId"
+                        class="form-select"
+                        formControlName="classId"
+                    >
+                    <option value="" disabled>select class</option> <!--<option *ngFor="let class of classes" [value]="class.classId">{{class.name}}-->
+                        <!--<option *ngFor="let class of classes" [value]="class.classId">{{class.name}}-->
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="parentId" class="form-label">parents</label>
+                    <select
+                        id="parentId"
+                        class="form-select"
+                        formControlName="parentId"
+                    >
+                    <option value="" disabled>select parents</option> <!--<option *ngFor="let class of classes" [value]="class.classId">{{class.name}}-->
+                        
+                        <!--<option *ngFor="let parent of parents" [value]="class.classId">{{class.name}}-->
+                    </select>
+
+                </div>
+
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary mb-4" [disabled]="studentsForm.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>

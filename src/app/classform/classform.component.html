@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 rounded rounded-2 shadow m-2 ">
+            <h3 class="text-danger">classForm </h3>
+            <form [formGroup]="classForm" (ngSubmit)="onSubmit()" class="mt-2 p-2">
+                <div class="mb-3">
+                    <label for="name" class="form-label"> Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name"
+                        placeholder="enter a name" />
+                </div>
+
+                <div *ngIf="classForm.get('name')?.touched && classForm.get('name')?.invalid" class="text-danger">
+                    <small *ngIf="classForm.get('name')?.hasError('required')">name is required</small>
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select id="status" class="form-control" formControlName="status">
+                        <option value="">Select status</option>
+                        <option value="Active">Active</option>
+                        <option value="inActive">inActive</option>
+                    </select>
+
+                    <div *ngIf="classForm.get('status')?.touched && classForm.get('status')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="classForm.get('status')?.hasError('required')">Status is required</small>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="createdBy" class="form-label">createdBy</label>
+                    <input type="text" id="createdBy" class="form-control" formControlName="createdBy"
+                        placeholder="enter a phonenumber" />
+
+                    <div *ngIf="classForm.get('createdBy')?.touched && classForm.get('createdBy')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="classForm.get('createdBy')?.hasError('required')">createdBy is required</small>
+
+                    </div>
+
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="classId" class="form-label">teacher</label>
+                    <select
+                        id="classId"
+                        class="form-select"
+                        formControlName="classId"
+                    >
+                    <option value="" disabled>select class</option> <!--<option *ngFor="let class of classes" [value]="class.classId">{{class.name}}-->
+                        <!--<option *ngFor="let class of classes" [value]="class.classId">{{class.name}}-->
+                    </select>
+
+                </div>
+
+               
+
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary mb-4" [disabled]="classForm.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>

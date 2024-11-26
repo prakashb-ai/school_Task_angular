@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4">
+      <form [formGroup]="parentsForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter a name" />
+
+          <div *ngIf="parentsForm.get('name')?.touched && parentsForm.get('name')?.invalid" class="text-danger">
+            <small *ngIf="parentsForm.get('name')?.hasError('required')">Name is required.</small>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter an email" />
+
+          <div *ngIf="parentsForm.get('email')?.touched && parentsForm.get('email')?.invalid" class="text-danger">
+            <small *ngIf="parentsForm.get('email')?.hasError('required')">email is required</small>
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phonenumber" class="form-label">Phone Number</label>
+          <input type="text" id="phonenumber" class="form-control" formControlName="phonenumber"
+            placeholder="Enter a phone number" />
+
+
+          <div *ngIf="parentsForm.get('phonenumber')?.touched && parentsForm.get('phonenumber')?.invalid"
+            class="text-danger">
+            <small *ngIf="parentsForm.get('phonenumber')?.hasError('required')">phone number is required</small>
+
+          </div>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary mb-4" [disabled]="parentsForm.invalid">Submit</button>
+          </div>
+
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
